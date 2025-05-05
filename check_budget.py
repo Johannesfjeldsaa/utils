@@ -11,10 +11,10 @@ from tabulate import tabulate
 sys.path.append(str(
     (Path(__file__).resolve()).joinpath(os.pardir, 'utils').resolve()
 ))
-from utils.type_check_decorator import type_check_decorator
-from utils.descriptive_stat_utils import calculate_sum
-from utils.plot import plot_datasets_side_by_side
-from utils.columnintegration import make_columnintegrater
+from type_check_decorator import type_check_decorator
+from descriptive_stat_utils import calculate_sum
+from plot import plot_datasets_side_by_side
+from columnintegration import make_columnintegrater
 
 class CalcBudget:
 
@@ -209,7 +209,7 @@ class CalcBudget:
         width = 20
         print(f'{"Species".ljust(width)}: {self.species}')
         if not np.isnan(self.load_delta):
-            print(f'{"delta_cb".ljust(width)}: {self.load_delta:.{print_precision}e} kg')
+            print(f'{"Load change".ljust(width)}: {self.load_delta:.{print_precision}e} kg')
         print(f'{"Source".ljust(width)}: {self.source:.{print_precision}e} kg')
         print(f'{"Sink".ljust(width)}: {self.sink:.{print_precision}e} kg')
         print(f'{"Balance".ljust(width)}: {self.balance:.{print_precision}e} kg')
@@ -397,7 +397,7 @@ def __main__():
     # Import the necessary modules
     # -------------------------------
     import argparse
-    from utils.time_utils import calculate_seconds_diff
+    from time_utils import calculate_seconds_diff
 
     # -------------------------------
     # Parse command line arguments

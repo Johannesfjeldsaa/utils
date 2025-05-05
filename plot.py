@@ -1,5 +1,7 @@
 
 import cmocean
+import matplotlib
+matplotlib.use('Qt5Agg')
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
@@ -140,4 +142,4 @@ def plot_datasets_side_by_side(
     )
 
     plt.tight_layout()
-    plt.savefig('budget.png', dpi=300)
+    plt.show()

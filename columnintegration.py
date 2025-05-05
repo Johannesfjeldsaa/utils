@@ -1,6 +1,7 @@
-# By Dirk Olivie
+#
+# By Dirk Olivie up until 2025-05
+# By Johannes Fjeldså from 2025-05
 
-import sys
 import numpy as np
 import xarray as xr
 from getlenintervaloverlap import getlenintervaloverlap
