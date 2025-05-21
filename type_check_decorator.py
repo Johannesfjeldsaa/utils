@@ -1,4 +1,5 @@
 import inspect
+import warnings
 from typing import get_type_hints, Union, get_origin, get_args
 
 def type_check_decorator(func):
@@ -31,7 +32,13 @@ def type_check_decorator(func):
 
                 if origin is Union:
                     # Remove NoneType from args for Optional
-                    valid_types = tuple(arg for arg in args_ if arg is not type(None))
+                    valid_types = []
+                    for arg in args_:
+                        if isinstance(arg, type):
+                            valid_types.append(arg)
+                        else:
+                            warnings.warn(f"Warning: {arg} is not a valid type for type checking. It will not be included.")
+                    valid_types = tuple(valid_types)
                     if value is not None and not isinstance(value, valid_types):
                         raise TypeError(
                             f"Argument '{name}' must be of type {expected_type}, but got {type(value)}"
