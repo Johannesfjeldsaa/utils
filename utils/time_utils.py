@@ -5,7 +5,8 @@ import cftime
 import numpy as np
 from typing import Union
 from datetime import datetime
-from type_check_decorator import type_check_decorator
+
+from utils.type_check_decorator import type_check_decorator
 
 @type_check_decorator
 def parse_timestamp(
